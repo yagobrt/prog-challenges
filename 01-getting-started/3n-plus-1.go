@@ -1,4 +1,4 @@
-package main
+package gettingstarted
 
 import (
 	"fmt"
@@ -18,7 +18,7 @@ func calcular_longitud(n int, longitudes map[int]int) int {
 	return longitudes[n]
 }
 
-func main() {
+func ThreeNPlusOne() {
 	long_ciclos := make(map[int]int)
 	long_ciclos[1] = 1
 
@@ -41,5 +41,4 @@ func main() {
 		}
 		fmt.Printf("%d %d %d\n", i, j, long_max)
 	}
-
 }
