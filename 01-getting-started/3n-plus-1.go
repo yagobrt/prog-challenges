@@ -4,23 +4,23 @@ import (
 	"fmt"
 )
 
-func calcular_longitud(n int, longitudes map[int]int) int {
-	_, ok := longitudes[n]
+func calculate_length(n int, lenghts map[int]int) int {
+	_, ok := lenghts[n]
 	if !ok {
-		var sig int
+		var next int
 		if n%2 == 0 {
-			sig = n / 2
+			next = n / 2
 		} else {
-			sig = 3*n + 1
+			next = 3*n + 1
 		}
-		longitudes[n] = 1 + calcular_longitud(sig, longitudes)
+		lenghts[n] = 1 + calculate_length(next, lenghts)
 	}
-	return longitudes[n]
+	return lenghts[n]
 }
 
 func ThreeNPlusOne() {
-	long_ciclos := make(map[int]int)
-	long_ciclos[1] = 1
+	cycle_lengths := make(map[int]int)
+	cycle_lengths[1] = 1
 
 	var i, j int
 
@@ -30,15 +30,15 @@ func ThreeNPlusOne() {
 			return
 		}
 
-		inicio := min(i, j)
-		final := max(i, j)
+		start := min(i, j)
+		end := max(i, j)
 
-		long_max := 0
+		max_len := 0
 		var l int
-		for num := inicio; num <= final; num++ {
-			l = calcular_longitud(num, long_ciclos)
-			long_max = max(l, long_max)
+		for num := start; num <= end; num++ {
+			l = calculate_length(num, cycle_lengths)
+			max_len = max(l, max_len)
 		}
-		fmt.Printf("%d %d %d\n", i, j, long_max)
+		fmt.Printf("%d %d %d\n", i, j, max_len)
 	}
 }
