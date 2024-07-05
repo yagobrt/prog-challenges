@@ -36,7 +36,6 @@ func generateOutput(fieldNum int, minePositions [][]string) {
 		}
 		fmt.Println()
 	}
-	fmt.Println()
 	return
 }
 
@@ -73,6 +72,9 @@ func Minesweeper() {
 
 		// Print resutls
 		numOfFields += 1
+		if numOfFields > 1 {
+			fmt.Println()
+		}
 		generateOutput(numOfFields, minePositions)
 	}
 }
